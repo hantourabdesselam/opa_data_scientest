@@ -1,0 +1,94 @@
+<mxfile host="app.diagrams.net" modified="2023-12-12T09:43:50.547Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0" etag="JabqZRSDAnTPstrTWecz" version="22.1.7" type="device">
+  <diagram name="Page-1" id="GdpLYoFwR7ZFqDOJtD2V">
+    <mxGraphModel dx="1537" dy="2112" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-1" value="API&amp;nbsp;&lt;br&gt;BINANCE" style="triangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="110" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-2" value="Historique" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="340" y="100" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-3" value="Stream" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="590" y="370" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="BIUBYFPig_j5Y0yx7dxn-1" target="BIUBYFPig_j5Y0yx7dxn-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="390" as="sourcePoint" />
+            <mxPoint x="440" y="340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="190" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="BIUBYFPig_j5Y0yx7dxn-1" target="BIUBYFPig_j5Y0yx7dxn-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="300" as="sourcePoint" />
+            <mxPoint x="320" y="370" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="190" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-7" value="Modele" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="110" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.042;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="BIUBYFPig_j5Y0yx7dxn-2" target="BIUBYFPig_j5Y0yx7dxn-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="390" as="sourcePoint" />
+            <mxPoint x="440" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-9" value="Entrainement" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="470" y="100" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="BIUBYFPig_j5Y0yx7dxn-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="661" y="190" as="sourcePoint" />
+            <mxPoint x="636" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.68;entryY=-0.05;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="BIUBYFPig_j5Y0yx7dxn-3" target="BIUBYFPig_j5Y0yx7dxn-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-13" value="Application" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="530" y="270" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-16" value="Actions" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="850" y="370" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-17" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="BIUBYFPig_j5Y0yx7dxn-3" target="BIUBYFPig_j5Y0yx7dxn-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="390" as="sourcePoint" />
+            <mxPoint x="440" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-18" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.415;exitY=-0.04;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.114;entryY=0.588;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="380.98" y="96" as="sourcePoint" />
+            <mxPoint x="570" y="-12.960000000000036" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="379.48" y="-13" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-19" value="Dashboard de suivi&amp;nbsp;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="-60" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-20" value="Portefeuille" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="850" y="540" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="BIUBYFPig_j5Y0yx7dxn-16" target="BIUBYFPig_j5Y0yx7dxn-20">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="430" as="sourcePoint" />
+            <mxPoint x="900" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BIUBYFPig_j5Y0yx7dxn-22" value="Mise à jour du portefeuille" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="930" y="490" width="90" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
