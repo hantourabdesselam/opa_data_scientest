@@ -1,0 +1,45 @@
+# get mysql-root-password
+echo -n 'rootpassword' | base64
+
+ # get my-sql user
+echo -n 'admin'  | base64
+echo -n 'adminpassword'  | base64
+echo -n 'test_projet'  | base64
+
+# create mysql-root-password
+kubectl apply -f mysql-root-secret.yml
+
+# create mysql-user-secrect
+kubectl apply -f mysql-user-secrect.yml 
+
+# check secret
+kubectl get secret
+
+# create pv
+kubectl apply -f mysql-local-data-folder-pv.yml
+
+# create pvc
+kubectl apply -f mysql-local-data-folder-pvc.yml
+
+# check pv/pvc
+kubectl get pv
+kubectl get pvc 
+# pvc created should have bound as status
+
+# apply statefulset
+kubectl apply -f statefulset.yml
+
+# expose mysql with service
+kubectl create -f service.yml
+
+# check all
+kubectl get all
+kubectl describe pod project-mysql-0
+
+# enter mysql to see if the database test-project is well created
+kubectl exec -it project-mysql-0 -- /bin/bash
+mysql -uroot -p${MYSQL_ROOT_PASSWORD}
+SHOW DATABASES; 
+# we should have test_project in database
+# tap exit to exit mysql commande interface
+

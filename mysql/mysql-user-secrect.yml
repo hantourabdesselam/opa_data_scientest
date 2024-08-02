@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: project-mysql-user
+type: Opaque
+data:
+  username: YWRtaW4=
+  password: YWRtaW5wYXNzd29yZA==
+  database: dGVzdF9wcm9qZXQ=

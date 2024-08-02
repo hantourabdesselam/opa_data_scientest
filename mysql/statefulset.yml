@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: project-mysql
+  labels:
+    app: project-mysql
+spec:
+  selector:
+    matchLabels:
+      app: project-mysql
+  template:
+    metadata:
+      labels:
+        app: project-mysql
+    spec:
+      containers:
+      - name: project-mysql
+        image: docker.io/mysql:8.4
+        ports:
+        - containerPort: 3306
+        env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: projet-mysql-root-password
+                  key: password
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: project-mysql-user
+                  key: username
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: project-mysql-user
+                  key: password
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: project-mysql-user
+                  key: database
+        volumeMounts:
+            - name: project-mysql-volume
+              mountPath: /var/lib/project-mysql
+      volumes:
+      - name: project-mysql-volume
+        persistentVolumeClaim:
+          claimName: project-mysql-pvc

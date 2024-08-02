@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-opa
+  labels:
+    app: api-opa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-opa
+  template:
+    metadata:
+      labels:
+        app: api-opa
+    spec:
+      containers:
+      - name: api-opa
+        image: hantourabdess/projet_api_opa
+        ports:
+          - containerPort: 8000
+        env:
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: project-mysql-user
+                key: username
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: project-mysql-user
+                key: password
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: project-mysql-user
+                key: database
+          - name: BINANCE_kEY
+            valueFrom:
+              secretKeyRef:
+                name: binance-api
+                key: api-key
+          - name: BINANCE_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: binance-api
+                key: api-secret
+        volumeMounts:
+          - name: app-volume
+            mountPath: /home
+      volumes:
+      - name: app-volume
+        hostPath:
+          path: /home/ubuntu/projets/projet_api_opa/data
+          type: Directory

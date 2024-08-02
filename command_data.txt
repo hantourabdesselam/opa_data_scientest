@@ -1,0 +1,23 @@
+
+# build docker image 
+docker build -t hantourabdess/projet_api_opa .
+docker login
+docker push hantourabdess/projet_api_opa
+## the next user will not need to do this coz already build
+
+#  pull the docker image
+docker image pull hantourabdess/projet_api_opa
+
+# create path to stock data ( the volumn path is defined as ~/projet/data$, so you need to make sure that this path exists)
+mkdir ~/projet/data
+
+# create binance secret
+kubectl apply -f binance-secret.yml
+
+# create deployment
+kubectl apply -f deployment.yml
+
+# then you shall see the ml.csv in your ~/projet/data$!
+
+# expose your api
+kubectl create -f service.yml

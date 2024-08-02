@@ -1,9 +1,0 @@
-version: "3.3"
-services:
-  mongodb:
-    image : mongo:5.0
-    container_name: my_mongo
-    volumes:
-      - ./out:/data/db  # Exemple de montage d'un volume local dans le conteneur MongoDB
-    ports:
-      - "27017:27017"   # Mapping du port local 27017 au port 27017 du conteneur MongoDB
