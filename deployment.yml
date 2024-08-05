@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api-opa
-        image: hantourabdess/projet_api_opa
+        image: emma0o0/project:latest
         ports:
           - containerPort: 8000
         env:
@@ -51,5 +51,5 @@ spec:
       volumes:
       - name: app-volume
         hostPath:
-          path: /home/ubuntu/projets/projet_api_opa/data
+          path: /home/ubuntu/opa_data_scientest/data
           type: Directory

@@ -110,12 +110,15 @@ def update_wallet_with_action(action:Actions):
             # get historical price for given symbol
             symbol_price = get_from_api_historical_prices(symbol, client)
             logger.info(f"fetch historical price done for {symbol}")
+            
+            # save historical price into bdd mysql
+            symbol_price_table_name = f"historical_prices_{symbol}"
+            symbol_price.to_sql(symbol_price_table_name, mysql_engine, if_exists='append', index=False)
+            logger.info(f"saving historical prices done for {symbol}")
 
-            # save historical price into csv
-            symbol_price_csv_name = f"historical_prices_{symbol}.csv"
-            symbol_price.to_csv('home/'+symbol_price_csv_name, header =True, sep=';', encoding='utf-8', index=False)
-            if os.path.exists('home/'+symbol_price_csv_name):
-                logger.info(f"saving historical prices done for {symbol}")
+            # read historical price from mysql engine
+            symbol_price = pd.read_sql(f"SELECT * FROM {symbol_price_table_name}", mysql_engine)
+            logger.info(f"read historical prices done for {symbol}")
 
             # train model
             symbol_model = run_training_model(symbol_price)
@@ -152,10 +155,13 @@ async def update_wallet():
     try:
         wallet = pd.read_sql('SELECT * FROM wallet', mysql_engine)
         updated_wallet = get_updated_wallet(wallet, client)
-        updated_wallet = updated_wallet.applymap(lambda x: str(x) if isinstance(x, float) else x)
+        # updated_wallet = updated_wallet.applymap(lambda x: str(x) if isinstance(x, float) else x)
 
         res['message'] = "Success updateing total_actif in wallet by getting current prices"
         res['wallet'] = updated_wallet.to_dict('records')
+
+        # repush updated wallet to replace the table wallet in mysql
+        updated_wallet.to_sql('wallet', mysql_engine, if_exists='replace', index=False)
     except Exception as e:
         res['error'] = str(e)
     return res
