@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from prophet.serialize import model_to_json, model_from_json
 from datetime import datetime, timedelta
 
-def get_from_api_historical_prices(symbol, client, currency="EUR"):
+def get_from_api_historical_prices(symbol, client, year, currency="EUR"):
     """
     Function which gets historical prices for given symbol
     """
@@ -18,7 +18,7 @@ def get_from_api_historical_prices(symbol, client, currency="EUR"):
     # Obtenir le temps de fin (temps actuel)
     end_time = datetime.now()
     # Calculer le temps de début (3 ans)
-    start_time = end_time - timedelta(days=36*31)  # Environ 3 ans
+    start_time = end_time - timedelta(days=year*12*31)  # Environ 3 ans
 
     # Convertir start_time et end_time en millisecondes pour l'API
     start_time_str = start_time.strftime('%Y-%m-%d %H:%M:%S')
@@ -42,18 +42,6 @@ def get_from_api_historical_prices(symbol, client, currency="EUR"):
 
     return historical_prices
 
-
-def get_wallet(engine):
-    try:
-        # read wallet in mysql bd
-        wallet = pd.read_sql('SELECT * FROM wallet', engine)
-        return wallet
-    except Exception as e:
-        wallet = pd.DataFrame({'timestamp': [datetime.now()],'fonds_disponibles': [10000], 'btc': [0], 'eth': [0], 'doge': [0], 'fonds_investis':[0], 'total_actif':[0]})
-        # Write the default wallet to the database
-        wallet.to_sql('wallet', engine, if_exists='replace', index=False)
-        
-        return wallet
 
 def prepare_money_to_model(symbol_prices):
     df_money = symbol_prices[['timestamp','close']]

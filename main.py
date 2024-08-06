@@ -107,8 +107,8 @@ def update_wallet_with_action(action:Actions):
             wallet = pd.read_sql('SELECT * FROM wallet', mysql_engine)
             logger.info(f"read wallet done")
 
-            # get historical price for given symbol
-            symbol_price = get_from_api_historical_prices(symbol, client)
+            # get historical price for given symbol for the last one year
+            symbol_price = get_from_api_historical_prices(symbol, client, 1)
             logger.info(f"fetch historical price done for {symbol}")
             
             # save historical price into bdd mysql
